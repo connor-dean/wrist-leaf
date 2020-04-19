@@ -10,7 +10,19 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        Text("Hello, World!")
+        VStack {
+            Button(action: {
+                getLightInfo()
+            }) {
+                Text("Light Info")
+            }
+            
+            Button(action: {
+                listEffects()
+            }) {
+                Text("List Effects")
+            }
+        }
     }
 }
 
