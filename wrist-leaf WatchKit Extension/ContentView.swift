@@ -17,9 +17,8 @@ struct ContentView: View {
                 Text("Light Info")
             }
             
-            Button(action: {
-                listEffects()
-            }) {
+            NavigationLink(
+            destination: EffectsListView()) {
                 Text("List Effects")
             }
         }

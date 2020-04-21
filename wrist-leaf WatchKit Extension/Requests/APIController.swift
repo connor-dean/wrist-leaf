@@ -22,23 +22,24 @@ let token = "rrDukXFzoqmNP3Hwm6bbdVLLNftpKNui"
 let url = URL(string: "http://\(ip):\(port)/api/v1/\(token)/")!
 
 // TODO
-func togglePower() {
-    httpRequest(httpRequest: HTTPRequests.PUT, apiSuffix: "state")
+func togglePower() -> [String] {
+    return httpRequest(httpRequest: HTTPRequests.PUT, apiSuffix: "state")
 }
 
-func getLightInfo() {
-    httpRequest(httpRequest: HTTPRequests.GET)
+func getLightInfo() -> [String] {
+    return httpRequest(httpRequest: HTTPRequests.GET)
 }
 
-func listEffects() {
-    httpRequest(httpRequest: HTTPRequests.GET, apiSuffix: "effects/effectsList")
+func listEffects() -> [String] {
+    return httpRequest(httpRequest: HTTPRequests.GET, apiSuffix: "effects/effectsList")
 }
 
-func httpRequest(httpRequest: HTTPRequests, apiSuffix: String? = nil) {
+func httpRequest(httpRequest: HTTPRequests, apiSuffix: String? = nil) -> [String] {
     let requestURL = URL(string: "\(url)\(apiSuffix ?? "")")
     var request = URLRequest(url: requestURL!)
     request.httpMethod = "\(httpRequest)"
 
+    var responseData: [String] = []
     
     let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
         if let error = error {
@@ -48,8 +49,12 @@ func httpRequest(httpRequest: HTTPRequests, apiSuffix: String? = nil) {
         
         if let data = data, let lightInfo = String(data: data, encoding: .utf8) {
             print("Response data string:\n \(lightInfo)")
+            let parsedBackslash = lightInfo.components(separatedBy: "\"")
+            let parsedList = parsedBackslash.filter {$0 != "," && $0 != "[" && $0 != "]"}
+            responseData = parsedList
         }
     }
     
     task.resume()
+    return responseData // This is hitting a race condition
 }
