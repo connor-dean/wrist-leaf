@@ -9,8 +9,12 @@
 import SwiftUI
 
 struct EffectsListView: View {
-//    let lightEffects: [String] = listEffects()
-    let lightEffects: [LightEffect]
+    let lightEffects: [LightEffect] = [LightEffect(title: "Test", palette: [
+        Palette(hue: 123, saturation: 123, brightness: 123),
+        Palette(hue: 5, saturation: 123, brightness: 123),
+        Palette(hue: 60, saturation: 123, brightness: 123),
+        Palette(hue: 75, saturation: 123, brightness: 123),
+    ])]
 
     var body: some View {
         ScrollView {
@@ -20,7 +24,6 @@ struct EffectsListView: View {
                     .fontWeight(.bold)
                     .multilineTextAlignment(.leading)
                     .lineLimit(nil)
-    //                .padding()
 
                 if (lightEffects.count == 0) {
                     Text("No effects found")
@@ -37,17 +40,7 @@ struct EffectsListView: View {
 struct EffectsListView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            EffectsListView(lightEffects: [
-                LightEffect(title: "Test", palette: [
-                    Palette(hue: 123, saturation: 123, brightness: 123),
-                    Palette(hue: 5, saturation: 123, brightness: 123),
-                    Palette(hue: 60, saturation: 123, brightness: 123),
-                    Palette(hue: 75, saturation: 123, brightness: 123),
-                ]),
-                LightEffect(title: "Test 2", palette: [
-                    Palette(hue: 123, saturation: 123, brightness: 123),
-                ])
-            ])
+            EffectsListView()
         }
     }
 }

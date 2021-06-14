@@ -12,7 +12,7 @@ struct ContentView: View {
     var body: some View {
         VStack {
             Button(action: {
-                getLightInfo()
+//                getLightInfo()
             }) {
                 Text("Light Info")
             }
