@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B3617B7A244E80970034563D /* EffectsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3617B79244E80970034563D /* EffectsListView.swift */; };
 		B3F86761244BE1AB00373582 /* wrist-leaf WatchKit App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = B3F86760244BE1AB00373582 /* wrist-leaf WatchKit App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		B3F86767244BE1AB00373582 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3F86765244BE1AB00373582 /* Interface.storyboard */; };
 		B3F86769244BE1AB00373582 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B3F86768244BE1AB00373582 /* Assets.xcassets */; };
@@ -17,6 +18,9 @@
 		B3F8677B244BE1AC00373582 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B3F8677A244BE1AC00373582 /* Assets.xcassets */; };
 		B3F8677E244BE1AC00373582 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B3F8677D244BE1AC00373582 /* Preview Assets.xcassets */; };
 		B3F8678F244BE3F700373582 /* APIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F8678E244BE3F700373582 /* APIController.swift */; };
+		F2F603DA26765B6900C496B9 /* EffectItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F603D926765B6900C496B9 /* EffectItem.swift */; };
+		F2F603DE26765C0200C496B9 /* Palette.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F603DD26765C0200C496B9 /* Palette.swift */; };
+		F2F603E026765C3100C496B9 /* LightEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F603DF26765C3100C496B9 /* LightEffect.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +66,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		B3617B79244E80970034563D /* EffectsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EffectsListView.swift; sourceTree = "<group>"; };
 		B3F8675C244BE1AA00373582 /* wrist-leaf.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "wrist-leaf.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3F86760244BE1AB00373582 /* wrist-leaf WatchKit App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "wrist-leaf WatchKit App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3F86766244BE1AB00373582 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
@@ -75,6 +80,9 @@
 		B3F8677D244BE1AC00373582 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		B3F8677F244BE1AC00373582 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B3F8678E244BE3F700373582 /* APIController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIController.swift; sourceTree = "<group>"; };
+		F2F603D926765B6900C496B9 /* EffectItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EffectItem.swift; sourceTree = "<group>"; };
+		F2F603DD26765C0200C496B9 /* Palette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Palette.swift; sourceTree = "<group>"; };
+		F2F603DF26765C3100C496B9 /* LightEffect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightEffect.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +96,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B3617B78244E80610034563D /* EffectsListView */ = {
+			isa = PBXGroup;
+			children = (
+				B3617B79244E80970034563D /* EffectsListView.swift */,
+				F2F603D926765B6900C496B9 /* EffectItem.swift */,
+			);
+			path = EffectsListView;
+			sourceTree = "<group>";
+		};
 		B3F86755244BE1AA00373582 = {
 			isa = PBXGroup;
 			children = (
@@ -120,6 +137,8 @@
 		B3F86773244BE1AC00373582 /* wrist-leaf WatchKit Extension */ = {
 			isa = PBXGroup;
 			children = (
+				F2F603DB26765BDB00C496B9 /* Models */,
+				B3617B78244E80610034563D /* EffectsListView */,
 				B3F8678D244BE3D900373582 /* Requests */,
 				B3F86774244BE1AC00373582 /* ContentView.swift */,
 				B3F86776244BE1AC00373582 /* HostingController.swift */,
@@ -145,6 +164,23 @@
 				B3F8678E244BE3F700373582 /* APIController.swift */,
 			);
 			path = Requests;
+			sourceTree = "<group>";
+		};
+		F2F603DB26765BDB00C496B9 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				F2F603DC26765BF300C496B9 /* Effect */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		F2F603DC26765BF300C496B9 /* Effect */ = {
+			isa = PBXGroup;
+			children = (
+				F2F603DD26765C0200C496B9 /* Palette.swift */,
+				F2F603DF26765C3100C496B9 /* LightEffect.swift */,
+			);
+			path = Effect;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -275,10 +311,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B3617B7A244E80970034563D /* EffectsListView.swift in Sources */,
 				B3F8678F244BE3F700373582 /* APIController.swift in Sources */,
 				B3F86777244BE1AC00373582 /* HostingController.swift in Sources */,
 				B3F86775244BE1AC00373582 /* ContentView.swift in Sources */,
+				F2F603E026765C3100C496B9 /* LightEffect.swift in Sources */,
 				B3F86779244BE1AC00373582 /* ExtensionDelegate.swift in Sources */,
+				F2F603DA26765B6900C496B9 /* EffectItem.swift in Sources */,
+				F2F603DE26765C0200C496B9 /* Palette.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
