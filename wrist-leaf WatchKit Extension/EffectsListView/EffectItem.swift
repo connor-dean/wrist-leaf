@@ -10,11 +10,16 @@ import SwiftUI
 
 struct EffectItem: View {
     var lightEffect: LightEffect
+    let backgroundColor = UIColor(red: 200.0, green: 58.0, blue: 60.0, alpha: 1.0)
     
     var body: some View {
         HStack(alignment: .center) {
+            let customColors = lightEffect.palette.map { (palette) -> Color in
+                return Color(hue: Double(palette.hue), saturation: Double(palette.saturation), brightness: Double(palette.brightness))
+            }
+            
             Circle()
-                .fill(Color.red)
+                .fill(AngularGradient(gradient: Gradient(colors: customColors), center: .center))
                 .frame(width: 30.0, height: 30.0)
                 .padding(5)
 
@@ -33,7 +38,8 @@ struct EffectItem_Previews: PreviewProvider {
         EffectItem(lightEffect: LightEffect(
             title: "Test",
             palette: [
-                Palette(hue: 123, saturation: 100, brightness: 100)
+                Palette(hue: 50, saturation: 100, brightness: 100),
+                Palette(hue: 75, saturation: 100, brightness: 100)
             ]
         ))
     }

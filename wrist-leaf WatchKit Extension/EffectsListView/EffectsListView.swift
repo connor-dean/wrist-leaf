@@ -11,21 +11,23 @@ import SwiftUI
 struct EffectsListView: View {
 //    let lightEffects: [String] = listEffects()
     let lightEffects: [LightEffect]
-    
+
     var body: some View {
-        VStack {
-            Text("Effects")
-                .font(.headline)
-                .fontWeight(.bold)
-                .multilineTextAlignment(.leading)
-                .lineLimit(nil)
-                .padding()
-            
-            if (lightEffects.count == 0) {
-                Text("No effects found")
-            } else {
-                List(lightEffects) { lightEffect in
-                    EffectItem(lightEffect: lightEffect)
+        ScrollView {
+            VStack {
+                Text("Effects")
+                    .font(.headline)
+                    .fontWeight(.bold)
+                    .multilineTextAlignment(.leading)
+                    .lineLimit(nil)
+    //                .padding()
+
+                if (lightEffects.count == 0) {
+                    Text("No effects found")
+                } else {
+                    ForEach(lightEffects, id: \.self) { lightEffect in
+                        EffectItem(lightEffect: lightEffect)
+                    }
                 }
             }
         }
@@ -38,6 +40,9 @@ struct EffectsListView_Previews: PreviewProvider {
             EffectsListView(lightEffects: [
                 LightEffect(title: "Test", palette: [
                     Palette(hue: 123, saturation: 123, brightness: 123),
+                    Palette(hue: 5, saturation: 123, brightness: 123),
+                    Palette(hue: 60, saturation: 123, brightness: 123),
+                    Palette(hue: 75, saturation: 123, brightness: 123),
                 ]),
                 LightEffect(title: "Test 2", palette: [
                     Palette(hue: 123, saturation: 123, brightness: 123),
