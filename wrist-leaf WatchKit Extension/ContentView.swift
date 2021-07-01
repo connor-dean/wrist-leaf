@@ -21,6 +21,12 @@ struct ContentView: View {
             destination: EffectsListView()) {
                 Text("List Effects")
             }
+            
+            Button(action: {
+                print("hello")
+            }) {
+                Text("Power off")
+            }
         }
     }
 }
