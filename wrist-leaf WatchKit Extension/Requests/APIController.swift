@@ -40,7 +40,6 @@ func httpRequest(httpRequest: HTTPRequests, apiSuffix: String? = nil) -> [String
     request.httpMethod = "\(httpRequest)"
 
     var responseData: [String] = []
-
     let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
         if let error = error {
             print("There was an error making the request: \(error)")

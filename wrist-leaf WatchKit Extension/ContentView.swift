@@ -16,12 +16,12 @@ struct ContentView: View {
             }) {
                 Text("Light Info")
             }
-            
+
             NavigationLink(
             destination: EffectsListView()) {
                 Text("List Effects")
             }
-            
+
             Button(action: {
                 print("hello")
             }) {
