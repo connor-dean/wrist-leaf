@@ -12,14 +12,20 @@ struct ContentView: View {
     var body: some View {
         VStack {
             Button(action: {
-                getLightInfo()
+//                getLightInfo()
             }) {
                 Text("Light Info")
             }
-            
+
             NavigationLink(
             destination: EffectsListView()) {
                 Text("List Effects")
+            }
+
+            Button(action: {
+                print("hello")
+            }) {
+                Text("Power off")
             }
         }
     }

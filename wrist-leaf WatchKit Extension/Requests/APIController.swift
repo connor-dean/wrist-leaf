@@ -40,13 +40,12 @@ func httpRequest(httpRequest: HTTPRequests, apiSuffix: String? = nil) -> [String
     request.httpMethod = "\(httpRequest)"
 
     var responseData: [String] = []
-    
     let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
         if let error = error {
             print("There was an error making the request: \(error)")
             return
         }
-        
+
         if let data = data, let lightInfo = String(data: data, encoding: .utf8) {
             print("Response data string:\n \(lightInfo)")
             let parsedBackslash = lightInfo.components(separatedBy: "\"")
@@ -54,7 +53,7 @@ func httpRequest(httpRequest: HTTPRequests, apiSuffix: String? = nil) -> [String
             responseData = parsedList
         }
     }
-    
+
     task.resume()
     return responseData // This is hitting a race condition
 }
